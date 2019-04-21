@@ -21,10 +21,10 @@ class KthLargest{
         int add(int val){
             n.push_back(val);
             sortGreatest(n);
-            cout << "The "<< kth << "rd largest num is " << n.at(kth-1)<<endl;
-
+            //cout << "The "<< kth << "rd largest num is " << n.at(kth-1)<<endl;
+            return n.at(kth-1);
         }
-        int sortGreatest(vector<int>&nums)
+        void sortGreatest(vector<int>&nums)
         {
             int temp;
             for(int a = 0;a<nums.size()-1;a++)
@@ -77,11 +77,20 @@ int main()
     //using the functions
     KthLargest*obj = new KthLargest(k,nums);
     obj->sortGreatest(nums);
-    obj->add(3);
-    obj->add(5);
-    obj->add(10);
-    obj->add(9);
-    obj->add(4);
+
+    //using the return function of add(value)
+    int number;
+    number = obj->add(3);
+    cout << k << "rd largest number is " << number <<endl;
+    number = obj->add(5);
+    cout << k << "rd largest number is " <<number<<endl;
+    number = obj->add(10);
+    cout << k << "rd largest number is " << number <<endl;
+    number = obj->add(9);
+    cout << k << "rd largest number is " <<number<<endl;
+    number = obj->add(4);
+    cout << k << "rd largest number is " <<number<<endl;
+    
 
 
     return 0;
