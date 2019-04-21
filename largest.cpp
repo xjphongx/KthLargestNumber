@@ -9,15 +9,19 @@
 using namespace std;
 
 class KthLargest{
-
+    private:
+        int kth;
+        vector<int> n;
     public:
         KthLargest(int k, vector<int>&nums)
         {
-
+            kth = k;
+            n = nums;
         }
         int add(int val){
-
-
+            n.push_back(val);
+            sortGreatest(n);
+            cout << "The "<< kth << "rd largest num is " << n.at(kth-1)<<endl;
 
         }
         int sortGreatest(vector<int>&nums)
@@ -40,7 +44,6 @@ class KthLargest{
                 }
 
             }
-
             //testing loop(WORKS)
             cout << "Display sortGreatest results:"<<endl;
             for(int c = 0; c < nums.size();c++)
@@ -48,22 +51,17 @@ class KthLargest{
                 cout << nums.at(c)<< " ";
             }
             cout <<endl;
-
-
         }
 
 
 };
 
 
-
-
 int main()
 {
     //given
-    int k = 3;
+    int k = 3;//finding the 3rd largest number in the stream
     int arr[] = {4,5,8,2};
-
 
     //make a vector from this array
     int n = sizeof(arr)/sizeof(arr[0]); // this is weird
@@ -75,12 +73,16 @@ int main()
 
     }
     cout <<endl;
-
-    //sort the vector from greatest to least
     
-
+    //using the functions
     KthLargest*obj = new KthLargest(k,nums);
     obj->sortGreatest(nums);
+    obj->add(3);
+    obj->add(5);
+    obj->add(10);
+    obj->add(9);
+    obj->add(4);
+
 
     return 0;
 }
