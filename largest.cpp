@@ -3,6 +3,7 @@
 */
 
 #include <iostream>
+#include<array> //include this library to use array functions size
 #include <vector>
 
 using namespace std;
@@ -40,12 +41,13 @@ int main()
 
 
     //make a vector from this array
-    int n = sizeof(arr);
+    int n = size(arr);
     vector<int> nums;
     for(int a = 0; a < n; a++)
     {
         nums.push_back(arr[a]);
-        cout << nums.at(a);
+        cout << "hi" <<endl;
+        cout << nums.at(a) <<endl;
 
     }
 
